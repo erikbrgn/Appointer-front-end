@@ -1,2 +1,2 @@
-# nullpointerpatrol
-Bootstrap base for Nullpointerpatrol
+# Appointer
+Front-end Bootstrap base for Nullpointerpatrol's Appointer
