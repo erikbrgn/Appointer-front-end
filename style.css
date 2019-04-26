@@ -6,13 +6,9 @@
 html {
 	scroll-behavior: smooth;
 }
-body {
-	position: relative;
-}
+
 .help-tip{
-	position: absolute;
-	top: 18px;
-	right: 18px;
+	position: relative;
 	text-align: center;
 	background-color: #343A40;
 	border-radius: 50%;

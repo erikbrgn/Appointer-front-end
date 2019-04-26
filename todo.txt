@@ -1,0 +1,7 @@
+- Fix Form validation for every submit button
+- Fix Form Alert
+- Fix a Calendar
+- Investigate cache opportunities
+- Set error page
+- divide header, nav and footer into seperate JSP
+- Adapt for smaller screens
