@@ -48,11 +48,18 @@
             // document.getElementById('customerid').setCustomValidity(infoMessage);
 
         } else {
-            // Unnecessary code because form submit refreshes and removes the alert
-            infoMessage = "Success!";
-            showAlert(infoMessage, 'success');
+            // Testing AJAX
+           /* $.post("/PATHTOSERVLET", 
+            {
+                operation: "ajax_findCustomer",
+                idCustomer: customerID
+            },
+            function(data, status, xhr) {
+                showAlert(data, 'sucess');
+            }); */
+            ajaxPost('findCustomer', customerID);
 
-            form.submit();
+            //form.submit();
         }
     }
 
@@ -81,16 +88,20 @@
 
     function updateCustomerValidation(event) {
         event.preventDefault();
+        //add conditions and validation
     }
 
     function deleteCustomerValidation(event) {
         event.preventDefault();
+        // add conditions and validation
     }
 
+    // Checks if customerID is empty or not 10 digits
     function isCustomerIDValid() {
         return (customerID === "" || customerID.length != 10) ? false : true;
     }
 
+    // Checks if any input fields are empty
     function checkAllCustomerInputs() {
         for (var i = 0; i < arrayList.length; i++) {
             if (arrayList[i] === "") {
@@ -99,5 +110,28 @@
             }
         }
         return true;
+    }
+    
+    /* BELOW IS AJAX METHODS
+    *
+    *
+    * 
+    * 
+    */
+    // Generic method for ajaxPost, NOT TESTED
+    function ajaxPost($operation, $fieldVariable) {
+        $.ajax({
+            method: "POST",
+            url: "/PATHTOCONTROLLERSERVLET",
+            data: { operation: $operation, id: $fieldVariable},
+            error: ajaxReturnError,
+            success: ajaxReturnSuccess
+        });
+    }
+    function ajaxReturnSuccess(result, status, xhr) {
+        showAlert(result, 'success');
+    }
+    function ajaxReturnError(result, status, xhr) {
+        showAlert(result, 'danger');
     }
 })();
